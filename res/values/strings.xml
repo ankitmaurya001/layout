@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Finatoz Calculators</string>
+    <string name="activity_name">SIP Calculator</string>    
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+
+    <color name="white">#FFFFFF</color>
+    <color name="grey">#C0C0C0</color>
+    <color name="black">#000000</color>
+    <color name="platinum">#E5E4E2</color>
+    <color name="snow">#FFF8F0</color>
+    <color name="ghostwhite">#F0F7FF</color>
+    <color name="white1">#F9F9F9</color>
+    <color name="white2">#F5F5F5</color>
+    <color name="white3">#F3F3F3</color>
+    <color name="white4">#EEEEEE</color>
+    <color name="white5">#EBEBEB</color>
+    <color name="white6">#EAEAEA</color>
+    <color name="black1">#242424</color>
+    <color name="black2">#2F2F2F</color>
+    <color name="blue">#0C07A1</color>
+    <color name="blue1">#1589FF</color>
+    
+    
+    
+     <string name="country_prompt">Choose a country</string>
+    <string name="select">Choose</string>
+    <string-array name="compound_array">
+ <!--   Commenting these as only mothly and anually is being used
+        <item>Daily</item>
+        <item>Weekly</item>        -->
+        <item>Monthly</item>
+ <!--   <item>Quaterly</item>
+        <item>Semianually</item>   -->
+        <item>Annually</item>
+ <!--   <item >No Compound</item>  -->
+    </string-array>
+</resources>

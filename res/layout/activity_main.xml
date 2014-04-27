@@ -1,0 +1,188 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="410dp"
+    android:layout_height="match_parent"
+    android:background="@color/white6"
+    android:fillViewport="true"
+    android:isScrollContainer="true"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:verticalScrollbarPosition="right"
+    tools:context=".MainActivity" >
+
+     <RelativeLayout
+         android:id="@+id/relativeLayout"
+         android:layout_width="match_parent"
+         android:layout_height="match_parent" >
+    
+    <EditText
+        android:id="@+id/principalAmountEditText"
+        android:layout_width="138dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginRight="100dp"
+        android:layout_marginTop="0dp"
+        android:ems="10"
+        android:inputType="numberDecimal" >
+        <requestFocus />
+        </EditText>
+
+    <TextView
+        android:id="@+id/principalAmountTextView"
+        style="@style/styleName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/principalAmountEditText"
+        android:layout_alignBottom="@+id/principalAmountEditText"
+        android:layout_toLeftOf="@+id/principalAmountEditText"
+        android:layout_marginRight="3dp"
+        android:fontFamily="0"
+        android:text="Principal Amount"
+        android:textColor="@color/black2"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/monthlyDepositEditText"
+        android:layout_width="138dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/principalAmountEditText"
+        android:layout_marginRight="100dp"
+        android:ems="10"
+        android:inputType="numberDecimal" >
+
+        
+    </EditText>
+
+    <TextView
+        android:id="@+id/monthlyDepositTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/monthlyDepositEditText"
+        android:layout_alignBottom="@+id/monthlyDepositEditText"
+        android:layout_alignRight="@+id/principalAmountTextView"
+        android:layout_toLeftOf="@+id/monthlyDepositEditText"
+        android:layout_marginRight="0dp"
+        android:fontFamily="0"
+        android:text="Monthly Deposit"
+        android:textColor="@color/black2" 
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/periodTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/periodEditText"
+        android:layout_alignBottom="@+id/periodEditText"
+        android:layout_alignRight="@+id/monthlyDepositTextView"
+        android:text="Period(years)"
+        android:textColor="@color/black2"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/periodEditText"
+        android:layout_width="138dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/monthlyDepositEditText"
+        android:layout_below="@+id/monthlyDepositEditText"
+        android:ems="10"
+        android:inputType="numberDecimal" />
+
+    <EditText
+        android:id="@+id/annualInterestRateEditText"
+        android:layout_width="138dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/periodEditText"
+        android:layout_below="@+id/periodEditText"
+        android:ems="10"
+        android:inputType="numberDecimal" />
+
+    <TextView
+        android:id="@+id/annualInterestRateTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/annualInterestRateEditText"
+        android:layout_alignBottom="@+id/annualInterestRateEditText"
+        android:layout_alignRight="@+id/periodTextView"
+        android:text="Annual Interest rate%" 
+        android:textColor="@color/black2" 
+        android:textStyle="bold"/>
+
+      <Spinner
+          android:id="@+id/compoundingSpinner"
+          android:layout_width="167dp"
+          android:layout_height="wrap_content"
+          android:layout_alignLeft="@+id/annualInterestRateEditText"
+          android:layout_below="@+id/annualInterestRateEditText"
+          android:entries="@array/compound_array"
+          android:prompt="@string/select" />
+
+      <TextView
+          android:id="@+id/compoundingTextView"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_alignLeft="@+id/periodTextView"
+          android:layout_alignTop="@+id/compoundingSpinner"
+          android:layout_marginTop="14dp"
+          android:text="Compounding"
+          android:textColor="@color/black2"
+          android:textStyle="bold" />
+
+      <Button
+          android:id="@+id/calculateButton"
+          style="@style/button_text"
+          android:layout_width="120dp"
+          android:layout_height="35dp"
+          android:layout_alignRight="@+id/compoundingSpinner"
+          android:layout_below="@+id/compoundingSpinner"
+          android:layout_marginRight="0dp"
+          android:layout_marginTop="4dp"
+          android:background="@drawable/calculate_button"
+          android:text="Calculate" />
+
+      <Button
+          android:id="@+id/resetButton"
+          style="@style/button_text"
+          android:layout_width="120dp"
+          android:layout_height="35dp"
+          android:layout_alignBaseline="@+id/calculateButton"
+          android:layout_alignBottom="@+id/calculateButton"
+          android:layout_alignParentLeft="true"
+          android:background="@drawable/reset_button"
+          android:text="Reset" />
+
+
+      <TextView
+          android:id="@+id/maturityValueTextView"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_alignLeft="@+id/principalAmountTextView"
+          android:layout_below="@+id/resetButton"
+          android:layout_marginTop="30dp"
+          android:text="Maturity Value:"
+          android:textColor="@color/black2"
+          android:textSize="20sp"
+          android:textStyle="bold" />
+
+      <TextView
+          android:id="@+id/fillValueHereTextView"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_alignBaseline="@+id/maturityValueTextView"
+          android:layout_alignBottom="@+id/maturityValueTextView"
+          android:layout_marginLeft="11dp"
+          android:layout_toRightOf="@+id/maturityValueTextView"
+          android:text="0"
+          android:textColor="@color/blue1"
+          android:textSize="20sp"
+          android:textStyle="bold" />
+
+      </RelativeLayout>
+      </ScrollView>
+      
+  
+
+
