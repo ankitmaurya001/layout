@@ -18,7 +18,7 @@
          android:layout_height="match_parent" >
     
     <EditText
-        android:id="@+id/principalAmountEditText"
+        android:id="@+id/initialInvestmentEditText"
         android:layout_width="138dp"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
@@ -31,25 +31,25 @@
         </EditText>
 
     <TextView
-        android:id="@+id/principalAmountTextView"
+        android:id="@+id/initialInvestmentTextView"
         style="@style/styleName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/principalAmountEditText"
-        android:layout_alignBottom="@+id/principalAmountEditText"
-        android:layout_toLeftOf="@+id/principalAmountEditText"
+        android:layout_alignBaseline="@+id/initialInvestmentEditText"
+        android:layout_alignBottom="@+id/initialInvestmentEditText"
         android:layout_marginRight="3dp"
+        android:layout_toLeftOf="@+id/initialInvestmentEditText"
         android:fontFamily="0"
-        android:text="Principal Amount"
+        android:text="Initial Investment"
         android:textColor="@color/black2"
         android:textStyle="bold" />
 
     <EditText
-        android:id="@+id/monthlyDepositEditText"
+        android:id="@+id/monthlySIPEditText"
         android:layout_width="138dp"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
-        android:layout_below="@+id/principalAmountEditText"
+        android:layout_below="@+id/initialInvestmentEditText"
         android:layout_marginRight="100dp"
         android:ems="10"
         android:inputType="numberDecimal" >
@@ -58,18 +58,18 @@
     </EditText>
 
     <TextView
-        android:id="@+id/monthlyDepositTextView"
+        android:id="@+id/monthlySIPTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/monthlyDepositEditText"
-        android:layout_alignBottom="@+id/monthlyDepositEditText"
-        android:layout_alignRight="@+id/principalAmountTextView"
-        android:layout_toLeftOf="@+id/monthlyDepositEditText"
+        android:layout_alignBaseline="@+id/monthlySIPEditText"
+        android:layout_alignBottom="@+id/monthlySIPEditText"
+        android:layout_alignRight="@+id/initialInvestmentTextView"
         android:layout_marginRight="0dp"
+        android:layout_toLeftOf="@+id/monthlySIPEditText"
         android:fontFamily="0"
-        android:text="Monthly Deposit"
-        android:textColor="@color/black2" 
-        android:textStyle="bold"/>
+        android:text="Monthly SIP"
+        android:textColor="@color/black2"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/periodTextView"
@@ -77,7 +77,7 @@
         android:layout_height="wrap_content"
         android:layout_alignBaseline="@+id/periodEditText"
         android:layout_alignBottom="@+id/periodEditText"
-        android:layout_alignRight="@+id/monthlyDepositTextView"
+        android:layout_alignRight="@+id/monthlySIPTextView"
         android:text="Period(years)"
         android:textColor="@color/black2"
         android:textStyle="bold" />
@@ -86,8 +86,8 @@
         android:id="@+id/periodEditText"
         android:layout_width="138dp"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/monthlyDepositEditText"
-        android:layout_below="@+id/monthlyDepositEditText"
+        android:layout_alignLeft="@+id/monthlySIPEditText"
+        android:layout_below="@+id/monthlySIPEditText"
         android:ems="10"
         android:inputType="numberDecimal" />
 
@@ -126,6 +126,8 @@
           android:layout_height="wrap_content"
           android:layout_alignLeft="@+id/periodTextView"
           android:layout_alignTop="@+id/compoundingSpinner"
+          android:layout_alignBottom="@+id/compoundingTextView"
+          android:layout_alignRight="@+id/annualInterestRateEditText"
           android:layout_marginTop="14dp"
           android:text="Compounding"
           android:textColor="@color/black2"
@@ -154,30 +156,74 @@
           android:background="@drawable/reset_button"
           android:text="Reset" />
 
+      <TextView
+          android:id="@+id/principalInvestedTextViewDisplay"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_alignBaseline="@+id/principalInvestedTextView"
+          android:layout_alignBottom="@+id/principalInvestedTextView"
+          android:layout_marginLeft="11dp"
+          android:layout_toRightOf="@+id/principalInvestedTextView"
+          android:text="0"
+          android:textColor="@color/blue1"
+          android:textSize="15sp"
+          android:textStyle="bold" />
+
+      <TextView
+          android:id="@+id/principalInvestedTextView"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_alignParentLeft="true"
+          android:layout_below="@+id/resetButton"
+          android:layout_marginTop="31dp"
+          android:text="Principal Invested:"
+          android:textColor="@color/black2"
+          android:textSize="15sp"
+          android:textStyle="bold" />
+
+      <TextView
+          android:id="@+id/interestEarnedTextViewDisplay"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_alignBaseline="@+id/interestEarnedTextView"
+          android:layout_alignBottom="@+id/interestEarnedTextView"
+          android:layout_alignLeft="@+id/principalInvestedTextViewDisplay"
+          android:text="0"
+          android:textColor="@color/blue1"
+          android:textSize="15sp" 
+          android:textStyle="bold"/>
+
+      <TextView
+          android:id="@+id/maturityValueTextViewDisplay"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_alignBottom="@+id/maturityValueTextView"
+          android:layout_alignLeft="@+id/interestEarnedTextViewDisplay"
+          android:text="0"
+          android:textColor="@color/blue1"
+          android:textSize="15sp" 
+          android:textStyle="bold"/>
+
+      <TextView
+          android:id="@+id/interestEarnedTextView"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_alignRight="@+id/principalInvestedTextView"
+          android:layout_below="@+id/principalInvestedTextView"
+          android:text="Interest Earned:"
+          android:textColor="@color/black2"
+          android:textSize="15sp"
+          android:textStyle="bold" />
 
       <TextView
           android:id="@+id/maturityValueTextView"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
-          android:layout_alignLeft="@+id/principalAmountTextView"
-          android:layout_below="@+id/resetButton"
-          android:layout_marginTop="30dp"
+          android:layout_below="@+id/interestEarnedTextView"
+          android:layout_toLeftOf="@+id/principalInvestedTextViewDisplay"
           android:text="Maturity Value:"
           android:textColor="@color/black2"
-          android:textSize="20sp"
-          android:textStyle="bold" />
-
-      <TextView
-          android:id="@+id/fillValueHereTextView"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:layout_alignBaseline="@+id/maturityValueTextView"
-          android:layout_alignBottom="@+id/maturityValueTextView"
-          android:layout_marginLeft="11dp"
-          android:layout_toRightOf="@+id/maturityValueTextView"
-          android:text="0"
-          android:textColor="@color/blue1"
-          android:textSize="20sp"
+          android:textSize="15sp"
           android:textStyle="bold" />
 
       </RelativeLayout>

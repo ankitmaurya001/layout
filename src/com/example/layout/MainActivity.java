@@ -7,12 +7,12 @@
  *  For monthly deposit with compounding yearly 
  *  Amount			=P*(1+r/n)^nt +Y* (((1+r/n)^nt-1))/((1+r/n)-1))
  *  
- *  Future value is 							Amount
- *  Principal Amount is							P
- *  Rate of interest in percentage so r		=	rate/100
- *  Period is given in years so t			=	t  years
- *  Monthly Deposit is 							M 
- *  Compounding for yearly n				=	1
+ *  Maturity value is 												Amount
+ *  Principal Amount(Initial Investment) is							P
+ *  Rate of interest in percentage so r		=						rate/100
+ *  Period is given in years so t			=						t  years
+ *  Monthly Deposit(SIP) is 										M 
+ *  Compounding for yearly n				=						1
  *  Y is sum of monthly deposits plus partial interest which is
  *  Y		=12*M + 6.5*M*r
  *  ********************************************************************************************************************************
@@ -22,14 +22,23 @@
  *  For monthly deposit with compounding monthly
  * 	Amount			=P*(1+r/n)^nt + M*(((1+r/n)^nt-1)/((1+r/n)-1))
  * 
- *  Future value is 							Amount
- *  Principal Amount is							P
- *  Rate of interest in percentage so r		=	rate/100
- *  Period is given in years so t			=	t  years
- *  Monthly Deposit is 							M 
- *  Compounding for monthly n				=	12
+ *  Maturity value is 												Amount
+ *  Principal Amount(Initial Investment) is							P
+ *  Rate of interest in percentage so r		=						rate/100
+ *  Period is given in years so t			=						t  years
+ *  Monthly Deposit(SIP) is 										M 
+ *  Compounding for monthly n				=						12
  * **********************************************************************************************************************************
+ *
+ *The result will be in the form of 
+ *Principal Invested: Initial Investment + Monthly Deposit*12*Period(years)
+ *Interest Earned	: Maturity Value - Principal Invested
+ *Maturity Value	: Amount
+ *
  */
+
+
+
 
 
 
@@ -86,12 +95,14 @@ public class MainActivity extends Activity {
 	
 	//doubles value for calculation
 	
-	public double principalAmount;
-	public double monthlyDeposit;
+	public double initialInvestment;
+	public double monthlySIP;                     //means monthly deposit
 	public double period;            			  //period in years
 	public double annualInterestRate;
 	public double compounding;
-	public double amount;
+	public double maturityValue;
+	public double principalInvested;
+	public double interestEarned;
 	public double Y;                              //sum of monthly deposits plus partial interest which is
 	                                              //Y		=12*M + 6.5*M*r  used in monthly deposit with compounding yearly
 	
@@ -103,8 +114,8 @@ public class MainActivity extends Activity {
 	
 	//EditText declaration of variables
 	
-	public EditText principalAmountEditText;
-	public EditText monthlyDepositEditText;
+	public EditText initialInvestmentEditText;
+	public EditText monthlySIPEditText;
 	public EditText periodEditText;
 	public EditText annualInterestRateEditText;
 	
@@ -115,19 +126,21 @@ public class MainActivity extends Activity {
 	
 	
 	
-	//TextView decelaration of variables
+	//TextView declaration of variables
 	
 /*	private TextView principalAmountTextView;
-	private TextView monthlyDepositTextView;
+	private TextView monthlySIPTextView;
 	private TextView periodTextView;
 	private TextView anuualInterestRateTextView;
 	private TextView compoundingTextView;
 */	
 	
 	
-	//test textview
+	//Textview declaration of variables for dislpalying the result
 	
-	public TextView fillValueHere;
+	public TextView principalInvestedTextViewDisplay;
+	public TextView interestEarnedTextViewDisplay;
+	public TextView maturityValueTextViewDisplay;
 	
 	
 	
@@ -148,7 +161,7 @@ public class MainActivity extends Activity {
 		setContentView(R.layout.activity_main);
 		
 		
-		setTitle("SIP Calculator");
+		setTitle("Finatoz:SIP Calculator");
 		getReferences(); 		
 	
 		
@@ -157,8 +170,8 @@ public class MainActivity extends Activity {
 		
 		//attach listener to EditText fields
 		
-		 principalAmountEditText.addTextChangedListener(principalAmountEditTextTextWatcher);
-		 monthlyDepositEditText.addTextChangedListener(monthlyDepositEditTextTextWatcher);
+		initialInvestmentEditText.addTextChangedListener(initialInvestmentEditTextTextWatcher);
+		monthlySIPEditText.addTextChangedListener(monthlySIPEditTextTextWatcher);
 		
 	
 		
@@ -170,7 +183,7 @@ public class MainActivity extends Activity {
 		onButtonClick(); 
 		//it will call 
 		//getValuesFromReferences();
-		//displayInterest();
+		//displayResult();
 		
 	}
 	
@@ -182,7 +195,7 @@ public class MainActivity extends Activity {
 		
 	//	 principalAmountEditText.addTextChangedListener(principalAmountEditTextTextWatcher);
 	
-	     TextWatcher   principalAmountEditTextTextWatcher	=new TextWatcher() {
+	     TextWatcher   initialInvestmentEditTextTextWatcher	=new TextWatcher() {
 		
 			@Override
 			public void onTextChanged(CharSequence s, int start, int before, int count) {
@@ -201,7 +214,7 @@ public class MainActivity extends Activity {
 			public void afterTextChanged(Editable s) {
 				// TODO Auto-generated method stub
 			
-				insertCommaIntoEditText(principalAmountEditText,s);
+				insertCommaIntoEditText(initialInvestmentEditText,s);
 				
 				
 				
@@ -210,7 +223,7 @@ public class MainActivity extends Activity {
 		
 		
 		
-		TextWatcher monthlyDepositEditTextTextWatcher	=new TextWatcher() {
+		TextWatcher monthlySIPEditTextTextWatcher	=new TextWatcher() {
 			
 			@Override
 			public void onTextChanged(CharSequence s, int start, int before, int count) {
@@ -229,7 +242,7 @@ public class MainActivity extends Activity {
 			public void afterTextChanged(Editable s) {
 				// TODO Auto-generated method stub
 					
-				insertCommaIntoEditText(monthlyDepositEditText,s);
+				insertCommaIntoEditText(monthlySIPEditText,s);
 				
 			}
 		};
@@ -308,8 +321,8 @@ public class MainActivity extends Activity {
 		
 		      //Get references of EditText fields by referring their ID's
 		
-				principalAmountEditText				=(EditText) findViewById(R.id.principalAmountEditText);
-				monthlyDepositEditText				=(EditText) findViewById(R.id.monthlyDepositEditText);
+				initialInvestmentEditText			=(EditText) findViewById(R.id.initialInvestmentEditText);
+				monthlySIPEditText				=(EditText) findViewById(R.id.monthlySIPEditText);
 				periodEditText						=(EditText) findViewById(R.id.periodEditText);
 				annualInterestRateEditText			=(EditText) findViewById(R.id.annualInterestRateEditText); 
 				
@@ -325,10 +338,12 @@ public class MainActivity extends Activity {
 				calculateButton						=(Button) findViewById(R.id.calculateButton);
 				
 				
-			  //Get references from TextView fields by referring their ID's
+			  //Get references from TextView fields(which display results) by referring their ID's
 				
-			  //This textview is for showing the value of compoundInterest for the time being.	
-				fillValueHere						=(TextView) findViewById(R.id.fillValueHereTextView);
+				principalInvestedTextViewDisplay	=(TextView)findViewById(R.id.principalInvestedTextViewDisplay);
+				interestEarnedTextViewDisplay		=(TextView)findViewById(R.id.interestEarnedTextViewDisplay);
+				maturityValueTextViewDisplay		=(TextView)findViewById(R.id.maturityValueTextViewDisplay);
+				  
 				
 				
 			//	resetButton.setBackgroundColor(Color.BLUE);
@@ -353,29 +368,29 @@ public class MainActivity extends Activity {
 	//	 principalAmountEditText.getText().toString().replace(",","");
 	//	  str			= principalAmountEditText.getText().toString().replace(",","");
 		
-		   if(!principalAmountEditText.getText().toString().matches("")){
+		   if(!initialInvestmentEditText.getText().toString().matches("")){
 			  
-			   principalAmount				=Double.parseDouble(principalAmountEditText.getText().toString().replace(",",""));;
+			   initialInvestment				=Double.parseDouble(initialInvestmentEditText.getText().toString().replace(",",""));;
 			}
 		   
 		   //if the value is null than assign it to zero
-		   else if(principalAmountEditText.getText().toString().matches("")){
-			   principalAmount				=0;
+		   else if(initialInvestmentEditText.getText().toString().matches("")){
+			   initialInvestment				=0;
 			   
 		   }
 		   
 		  
 		   
-		   //Get text from monthlyDepositEditText handle by getText() change it to string by toString()
-		   // parse it to double and save in monthlyDeposit
+		   //Get text from monthlySIPEditText handle by getText() change it to string by toString()
+		   // parse it to double and save in monthlySIP
 		   //matches("") is for checking whether the value is null 
-		   if(!monthlyDepositEditText.getText().toString().matches("")){
-			   monthlyDeposit				=Double.parseDouble(monthlyDepositEditText.getText().toString().replace(",",""));;
+		   if(!monthlySIPEditText.getText().toString().matches("")){
+			   monthlySIP				=Double.parseDouble(monthlySIPEditText.getText().toString().replace(",",""));;
 			}
 			
 		  //if the value is null than assign it to zero
-		   else if(monthlyDepositEditText.getText().toString().matches("")){
-			   monthlyDeposit				=0;
+		   else if(monthlySIPEditText.getText().toString().matches("")){
+			   monthlySIP				=0;
 		   }
 		   
 			
@@ -438,38 +453,17 @@ public class MainActivity extends Activity {
 					imm.hideSoftInputFromWindow(annualInterestRateEditText.getWindowToken(), 0);
 				 
 				
-		        getValuesFromReferences();		
+		        getValuesFromReferences();	
+		        
+		        calculatePrincipalInvested();
+		        calculateMaturityValue();
+		        calculateInterestEarned();
+		       
 				
-		        //if compounding = monthly (n=12)
-		        //Amount			=P*(1+r/n)^nt + M*(((1+r/n)^nt-1)/((1+r/n)-1))
-		        
-		        if(compounding==12){
-		        	amount		=principalAmount*(Math.pow((1+(annualInterestRate/compounding)),compounding*period))+
-		        				 monthlyDeposit*(( (Math.pow((1+(annualInterestRate/compounding)),compounding*period))-1)/(annualInterestRate/compounding));
-		        }
-		        
-		        
-		        //if compounding = yearly (n=1)
-		        //Amount			=P*(1+r/n)^nt +Y* (((1+r/n)^nt-1))/((1+r/n)-1))
-		        //Y					=12*M + 6.5*M*r
-		        
-		        if(compounding==1){
-		        	Y			=12*monthlyDeposit + 6.5*monthlyDeposit*annualInterestRate;	
-		        	amount		=principalAmount*(Math.pow((1+(annualInterestRate/compounding)),compounding*period)) +
-		        				 Y*(( (Math.pow((1+(annualInterestRate/compounding)),compounding*period))-1)/(annualInterestRate/compounding));
-		        }
-		        
-		        
-		        //rounding off to 2 decimal places
-		        amount			=(Math.round(amount*100));
-		        amount			=amount/100;
-		        
-		        if(compounding==0){
-		        	amount		= principalAmount*(1+annualInterestRate*period);
-		        }
+		      
 		
 				// fillValueHere.setText("The value is " + amount);
-				 displayAmount();
+				 displayResult();
 				
 			}
 		});
@@ -489,10 +483,10 @@ public class MainActivity extends Activity {
 					      Context.INPUT_METHOD_SERVICE);
 					imm.hideSoftInputFromWindow(annualInterestRateEditText.getWindowToken(), 0);
 				//this will set principal Amount Edit text to null
-				principalAmountEditText.setText(null);
+				initialInvestmentEditText.setText(null);
 				
 				//this will set monthly Deposit Edit Text to null
-				monthlyDepositEditText.setText(null);
+				monthlySIPEditText.setText(null);
 				
 				//this will set period Edit Text to null
 				periodEditText.setText(null);
@@ -506,8 +500,15 @@ public class MainActivity extends Activity {
 				compoundingSpinner.setSelection(0);
 				
 				
-				//this will set the text field for amount to disappear
-				fillValueHere.setText("0");
+				//this will set principal Invested to 0
+				principalInvestedTextViewDisplay.setText("0");
+				
+				
+				//this will set interest Earned to 0
+				interestEarnedTextViewDisplay.setText("0");
+				
+				//this will set maturity Value to 0
+				maturityValueTextViewDisplay.setText("0");
 				
 				
 			}
@@ -521,11 +522,20 @@ public class MainActivity extends Activity {
 	 * after calculate interest is called
 	 */
 	;
-	public void displayAmount(){
+	public void displayResult(){
 		
-		DecimalFormat df = new DecimalFormat("#,###.##");		
-		fillValueHere.setText(""+df.format(amount));
-	//	fillValueHere.setTextColor(Color.BLACK);
+		DecimalFormat df = new DecimalFormat("#,###.##");
+		
+		
+		//to display principalInvested
+		principalInvestedTextViewDisplay.setText(""+df.format(principalInvested));
+		
+		//to display interestEarned		
+		interestEarnedTextViewDisplay.setText(""+df.format(interestEarned));
+		
+		//to display maturityValue
+		maturityValueTextViewDisplay.setText(""+df.format(maturityValue));
+		
 				
 	}
 	
@@ -601,6 +611,80 @@ public class MainActivity extends Activity {
 	
 	}
 	
+	
+
+	
+	/*
+	 * calcluate MauturityValue() is for calculating 
+	 * Maturity value
+	 */
+	
+	
+	public void calculateMaturityValue(){
+		  //if compounding = monthly (n=12)
+        //Amount			=P*(1+r/n)^nt + M*(((1+r/n)^nt-1)/((1+r/n)-1))
+        
+        if(compounding==12){
+        	maturityValue		=initialInvestment*(Math.pow((1+(annualInterestRate/compounding)),compounding*period))+
+        				 monthlySIP*(( (Math.pow((1+(annualInterestRate/compounding)),compounding*period))-1)/(annualInterestRate/compounding));
+        }
+        
+        
+        //if compounding = yearly (n=1)
+        //Amount			=P*(1+r/n)^nt +Y* (((1+r/n)^nt-1))/((1+r/n)-1))
+        //Y					=12*M + 6.5*M*r
+        
+        if(compounding==1){
+        	Y			=12*monthlySIP + 6.5*monthlySIP*annualInterestRate;	
+        	maturityValue		=initialInvestment*(Math.pow((1+(annualInterestRate/compounding)),compounding*period)) +
+        				 Y*(( (Math.pow((1+(annualInterestRate/compounding)),compounding*period))-1)/(annualInterestRate/compounding));
+        }
+        
+        
+        //rounding off to 2 decimal places
+        maturityValue			=(Math.round(maturityValue*100));
+        maturityValue			=maturityValue/100;
+        
+        if(compounding==0){
+        	maturityValue		= initialInvestment*(1+annualInterestRate*period);
+        }
+		
+		
+	}
+	
+	
+	/*
+	 * 
+	 * principalInvested() is for calculating 
+	 * total amount of money put by the invester
+	 * Principal Invested= Initial Investment + Monthly Deposit*12*Period(years)
+	 */
+	
+	
+	public void calculatePrincipalInvested(){
+
+		
+		principalInvested	=initialInvestment + monthlySIP*12*period;
+	}
+		
+		
+	
+	/*
+	 * interestEarend() is for calculating the interest in rupees got 
+	 * by the invester
+	 * Interest Earned	= Maturity Value - Principal Invested
+	 */
+	
+	
+	public void calculateInterestEarned(){
+		
+		interestEarned	= maturityValue - principalInvested;
+		
+	}
+		
+		
+	
+	
 		
 	
 	/*
@@ -608,7 +692,7 @@ public class MainActivity extends Activity {
 	//Get values from EditText fields into the variables by referring their ID's
 		
 		principalAmountEditText				=(EditText) findViewById(R.id.principalAmountEditText);
-		monthlyDepositEditText				=(EditText) findViewById(R.id.monthlyDepositEditText);
+		monthlySIPEditText				=(EditText) findViewById(R.id.monthlySIPEditText);
 		periodEditText						=(EditText) findViewById(R.id.periodEditText);
 		annualInterestRateEditText			=(EditText) findViewById(R.id.annualInterestRateEditText); 
 	//	compoundingEditText					=(EditText) findViewById(R.id.compoundingEditText);
@@ -626,7 +710,7 @@ public class MainActivity extends Activity {
 		//Get values from the TextView fields into the variables by referring their ID's
 		
 /*		principalAmountTextView				=(TextView) findViewById(R.id.principalAmountTextView);
-		monthlyDepositTextView				=(TextView) findViewById(R.id.monthlyDepositTextView);
+		monthlySIPTextView				=(TextView) findViewById(R.id.monthlySIPTextView);
 		periodTextView						=(TextView) findViewById(R.id.periodTextView);
 		anuualInterestRateTextView			=(TextView) findViewById(R.id.annualInterestRateTextView);
 		compoundingTextView					=(TextView) findViewById(R.id.compoundingTextView);
