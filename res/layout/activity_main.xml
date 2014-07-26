@@ -19,11 +19,11 @@
     
     <EditText
         android:id="@+id/initialInvestmentEditText"
-        android:layout_width="138dp"
+        android:layout_width="115dp"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
-        android:layout_marginRight="100dp"
+        android:layout_marginRight="165dp"
         android:layout_marginTop="0dp"
         android:ems="10"
         android:inputType="numberDecimal" >
@@ -37,20 +37,18 @@
         android:layout_height="wrap_content"
         android:layout_alignBaseline="@+id/initialInvestmentEditText"
         android:layout_alignBottom="@+id/initialInvestmentEditText"
-        android:layout_marginRight="3dp"
-        android:layout_toLeftOf="@+id/initialInvestmentEditText"
         android:fontFamily="0"
-        android:text="Initial Investment"
+        android:text="Initial Amount"
         android:textColor="@color/black2"
         android:textStyle="bold" />
 
     <EditText
         android:id="@+id/monthlySIPEditText"
-        android:layout_width="138dp"
+        android:layout_width="115dp"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_below="@+id/initialInvestmentEditText"
-        android:layout_marginRight="100dp"
+        android:layout_marginRight="165dp"
         android:ems="10"
         android:inputType="numberDecimal" >
 
@@ -63,6 +61,7 @@
         android:layout_height="wrap_content"
         android:layout_alignBaseline="@+id/monthlySIPEditText"
         android:layout_alignBottom="@+id/monthlySIPEditText"
+        android:layout_alignParentLeft="true"
         android:layout_alignRight="@+id/initialInvestmentTextView"
         android:layout_marginRight="0dp"
         android:layout_toLeftOf="@+id/monthlySIPEditText"
@@ -77,6 +76,7 @@
         android:layout_height="wrap_content"
         android:layout_alignBaseline="@+id/periodEditText"
         android:layout_alignBottom="@+id/periodEditText"
+        android:layout_alignParentLeft="true"
         android:layout_alignRight="@+id/monthlySIPTextView"
         android:text="Period(years)"
         android:textColor="@color/black2"
@@ -84,16 +84,17 @@
 
     <EditText
         android:id="@+id/periodEditText"
-        android:layout_width="138dp"
+        android:layout_width="115dp"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/monthlySIPEditText"
         android:layout_below="@+id/monthlySIPEditText"
+        
         android:ems="10"
-        android:inputType="numberDecimal" />
+        android:inputType="number" />
 
     <EditText
         android:id="@+id/annualInterestRateEditText"
-        android:layout_width="138dp"
+        android:layout_width="115dp"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/periodEditText"
         android:layout_below="@+id/periodEditText"
@@ -102,7 +103,7 @@
 
     <TextView
         android:id="@+id/annualInterestRateTextView"
-        android:layout_width="wrap_content"
+        android:layout_width="138dp"
         android:layout_height="wrap_content"
         android:layout_alignBaseline="@+id/annualInterestRateEditText"
         android:layout_alignBottom="@+id/annualInterestRateEditText"
@@ -222,6 +223,30 @@
           android:layout_below="@+id/interestEarnedTextView"
           android:layout_toLeftOf="@+id/principalInvestedTextViewDisplay"
           android:text="Maturity Value:"
+          android:textColor="@color/black2"
+          android:textSize="15sp"
+          android:textStyle="bold" />
+
+      <EditText
+          android:id="@+id/monthlyDepositAnnualRateEditText"
+          android:layout_width="40dp"
+          android:layout_height="wrap_content"
+          android:layout_above="@+id/periodEditText"
+          android:layout_marginLeft="85dp"
+          android:layout_toRightOf="@+id/periodEditText"
+          android:ems="10"
+          android:inputType="numberDecimal" />
+
+      <TextView
+          android:id="@+id/textView1"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_alignBaseline="@+id/monthlyDepositAnnualRateEditText"
+          android:layout_alignBottom="@+id/monthlyDepositAnnualRateEditText"
+          android:layout_alignRight="@+id/monthlyDepositAnnualRateEditText"
+          android:layout_toRightOf="@+id/periodEditText"
+          android:fontFamily="0"
+          android:text="Increase %"
           android:textColor="@color/black2"
           android:textSize="15sp"
           android:textStyle="bold" />

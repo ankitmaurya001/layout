@@ -52,7 +52,7 @@ public final class R {
         public static final int reset_button=0x7f020005;
     }
     public static final class id {
-        public static final int action_settings=0x7f0a0013;
+        public static final int action_settings=0x7f0a0015;
         public static final int annualInterestRateEditText=0x7f0a0007;
         public static final int annualInterestRateTextView=0x7f0a0008;
         public static final int calculateButton=0x7f0a000b;
@@ -64,6 +64,7 @@ public final class R {
         public static final int interestEarnedTextViewDisplay=0x7f0a000f;
         public static final int maturityValueTextView=0x7f0a0012;
         public static final int maturityValueTextViewDisplay=0x7f0a0011;
+        public static final int monthlyDepositAnnualRateEditText=0x7f0a0013;
         public static final int monthlySIPEditText=0x7f0a0003;
         public static final int monthlySIPTextView=0x7f0a0004;
         public static final int periodEditText=0x7f0a0006;
@@ -72,6 +73,7 @@ public final class R {
         public static final int principalInvestedTextViewDisplay=0x7f0a000d;
         public static final int relativeLayout=0x7f0a0000;
         public static final int resetButton=0x7f0a000c;
+        public static final int textView1=0x7f0a0014;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;
