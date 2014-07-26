@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.layout"
+    package="com.finatoz.calculators"
     android:versionCode="1"
     android:versionName="1.0" >
 
@@ -10,11 +10,11 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@drawable/logo1"
+        android:icon="@drawable/logo3"
         android:label="@string/app_name"
-        android:theme="@style/android:Theme" >
+        android:theme="@style/android:Theme" android:debuggable="false">
         <activity
-            android:name="com.example.layout.MainActivity"
+            android:name="com.finatoz.calculators.MainActivity"
             android:label="@string/app_name" 
             android:screenOrientation="portrait">
             <intent-filter>
