@@ -4,287 +4,530 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white6"
+    android:orientation="vertical"
     tools:context=".MainActivity" >
 
-    <ScrollView
-        android:id="@+id/mainScrollView"
+    <LinearLayout
+        android:id="@+id/outerLinearLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingTop="@dimen/margin" >
 
         <LinearLayout
-            android:id="@+id/outerLinearLayout"
+            android:id="@+id/inputLinearLayout"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:paddingTop="@dimen/margin" >
+            android:layout_height="0dp"
+            android:layout_weight="3.2"
+            android:orientation="horizontal" >
 
             <LinearLayout
-                android:id="@+id/initialAmountLinearLayout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingLeft="9dp" >
-
-                <TextView
-                    android:id="@+id/initialInvestmentTextView"
-                    style="@style/styleName"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Initial Amount"
-                    android:textColor="@color/black2"
-                    android:textStyle="bold" />
-
-                <EditText
-                    android:id="@+id/initialInvestmentEditText"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:ems="7"
-                    android:inputType="numberDecimal" >
-
-                    <requestFocus />
-                </EditText>
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/MonthlySIPLinearLayout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingLeft="28dp" >
-
-                <TextView
-                    android:id="@+id/monthlySIPTextView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="0"
-                    android:text="Monthly SIP"
-                    android:textColor="@color/black2"
-                    android:textStyle="bold" />
-
-                <EditText
-                    android:id="@+id/monthlySIPEditText"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:ems="7"
-                    android:inputType="numberDecimal" >
-                </EditText>
-
-                <TextView
-                    android:id="@+id/increaseTextView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="0"
-                    android:text="Increase %"
-                    android:textColor="@color/black2"
-                    android:textSize="15sp"
-                    android:textStyle="bold" />
-
-                <EditText
-                    android:id="@+id/monthlyDepositAnnualRateEditText"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:ems="4"
-                    android:inputType="numberDecimal" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/periodLinearLayout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingLeft="19dp" >
-
-                <TextView
-                    android:id="@+id/periodTextView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Period(years)"
-                    android:textColor="@color/black2"
-                    android:textStyle="bold" />
-
-                <EditText
-                    android:id="@+id/periodEditText"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:ems="7"
-                    android:inputType="number" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/annualRateLinearLayout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingLeft="22dp" >
-
-                <TextView
-                    android:id="@+id/annualRateTextView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Annual rate%"
-                    android:textColor="@color/black2"
-                    android:textStyle="bold" />
-
-                <EditText
-                    android:id="@+id/annualRateEditText"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:ems="7"
-                    android:inputType="numberDecimal" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/compoundingLinearLayout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingLeft="15dp" >
-
-                <TextView
-                    android:id="@+id/compoundingTextView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Compounding"
-                    android:textColor="@color/black2"
-                    android:textStyle="bold" />
-
-                <Spinner
-                    android:id="@+id/compoundingSpinner"
-                    android:layout_width="200dp"
-                    android:layout_height="wrap_content"
-                    android:entries="@array/compound_array"
-                    android:prompt="@string/select" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/OuterButtonLinearLayout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingBottom="0dp"
-                android:paddingTop="10dp" >
+                android:id="@+id/OuterTextViewAndEditTextLinearLayout"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1.5"
+                android:orientation="horizontal" >
 
                 <LinearLayout
-                    android:id="@+id/innerResetButtonLinearLayout"
+                    android:id="@+id/textViewLinearLayout"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical" >
+
+                    <LinearLayout
+                        android:id="@+id/initialInvestmentTextViewLinearLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical|right"
+                        android:orientation="horizontal" >
+
+                        <TextView
+                            android:id="@+id/initialInvestmentTextView"
+                            style="@style/styleName"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Initial Amount"
+                            android:textColor="@color/black2"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/monthlySIPTextViewLinearLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical|right"
+                        android:orientation="vertical" >
+
+                        <TextView
+                            android:id="@+id/monthlySIPTextView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Monthly SIP"
+                            android:textColor="@color/black2"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/periodTextViewLinearLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical|right"
+                        android:orientation="vertical" >
+
+                        <TextView
+                            android:id="@+id/periodTextView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Period(years)"
+                            android:textColor="@color/black2"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/annualRateTextViewLinearLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical|right"
+                        android:orientation="vertical" >
+
+                        <TextView
+                            android:id="@+id/annualRateTextView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Annual rate%"
+                            android:textColor="@color/black2"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                 
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/editTextLinearLayout"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical|right"
+                    android:orientation="vertical" >
+
+                    <LinearLayout
+                        android:id="@+id/initialInvestmentEditTextLinearLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical|left"
+                        android:orientation="vertical" >
+
+                        <EditText
+                            android:id="@+id/initialInvestmentEditText"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_margin="2dp"
+                            android:inputType="numberDecimal" >
+                        </EditText>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/monthlySIPEditTextLinearLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical|left"
+                        android:orientation="vertical" >
+
+                        <EditText
+                            android:id="@+id/monthlySIPEditText"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_margin="2dp"
+                            android:inputType="numberDecimal" >
+                        </EditText>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/periodEditTextLinearLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical|left"
+                        android:orientation="vertical" >
+
+                        <EditText
+                            android:id="@+id/periodEditText"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_margin="2dp"
+                            android:inputType="number" >
+                        </EditText>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/annualRateEditTextLinearLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical|left"
+                        android:orientation="vertical" >
+
+                        <EditText
+                            android:id="@+id/annualRateEditText"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_margin="2dp"
+                            android:inputType="numberDecimal" />
+                    </LinearLayout>
+
+                 
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/thirdLinearLayoutForMothlySIPIncrement"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical" >
+
+                <LinearLayout
+                    android:id="@+id/empty1LinearLayout"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_gravity="center_horizontal"
                     android:layout_weight="1"
-                    android:orientation="horizontal"
-                    android:paddingLeft="30dp"
-                    android:paddingRight="30dp" >
+                    android:gravity="center_vertical|left"
+                    android:orientation="horizontal" />
 
-                    <Button
-                        android:id="@+id/resetButton"
-                        style="@style/button_text"
-                        android:layout_width="match_parent"
-                        android:layout_height="45dp"
-                        android:background="@drawable/reset_button"
-                        android:text="Reset" />
+                <LinearLayout
+                    android:id="@+id/outerMonthlySIPIncreaseRateLinearLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical|left"
+                    android:orientation="horizontal" >
+
+                    <LinearLayout
+                        android:id="@+id/monthlySIPIncreaseRateTextViewLinearLayout"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_weight="2"
+                        android:gravity="center_vertical|right"
+                        android:orientation="vertical" 
+                        android:paddingLeft="1dp">
+
+                        <TextView
+                            android:id="@+id/increaseTextView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="0"
+                            android:text="Increase %"
+                            android:textColor="@color/black2"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/monthlySIPIncreaseRateEditTextLinearLayout"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical|left"
+                        android:orientation="vertical" >
+
+                        <EditText
+                            android:id="@+id/monthlyDepositAnnualRateEditText"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:inputType="numberDecimal" />
+                    </LinearLayout>
                 </LinearLayout>
 
                 <LinearLayout
-                    android:id="@+id/innerCalculateButtonLinearLayout"
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentBottom="true"
-                    android:layout_alignParentRight="true"
+                    android:id="@+id/empty2LinearLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_gravity="center_horizontal"
                     android:layout_weight="1"
-                    android:orientation="horizontal"
-                    android:paddingLeft="30dp"
-                    android:paddingRight="30dp" >
+                    android:gravity="center_vertical|left"
+                    android:orientation="horizontal" />
 
-                    <Button
-                        android:id="@+id/calculateButton"
-                        style="@style/button_text"
-                        android:layout_width="match_parent"
-                        android:layout_height="45dp"
-                        android:background="@drawable/calculate_button"
-                        android:text="Calculate" />
-                </LinearLayout>
-            </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/empty3LinearLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical|left"
+                    android:orientation="horizontal" />
 
-            <LinearLayout
-                android:id="@+id/principalInvestedLinearLayout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingLeft="20dp"
-                android:paddingTop="40dp" >
-
-                <TextView
-                    android:id="@+id/principalInvestedTextView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Principal Invested:"
-                    android:textColor="@color/black2"
-                    android:textSize="15sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/principalInvestedTextViewDisplay"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:text="0"
-                    android:textColor="@color/blue1"
-                    android:textSize="15sp"
-                    android:textStyle="bold" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/interestEarnedLinearLayout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingLeft="39dp" >
-
-                <TextView
-                    android:id="@+id/interestEarnedTextView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Interest Earned:"
-                    android:textColor="@color/black2"
-                    android:textSize="15sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/interestEarnedTextViewDisplay"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:text="0"
-                    android:textColor="@color/blue1"
-                    android:textSize="15sp"
-                    android:textStyle="bold" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/maturityValueLinearLayout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingLeft="45dp" >
-
-                <TextView
-                    android:id="@+id/maturityValueTextView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Maturity Value:"
-                    android:textColor="@color/black2"
-                    android:textSize="15sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/maturityValueTextViewDisplay"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:text="0"
-                    android:textColor="@color/blue1"
-                    android:textSize="15sp"
-                    android:textStyle="bold" />
+             
             </LinearLayout>
         </LinearLayout>
-    </ScrollView>
+         <LinearLayout
+            android:id="@+id/compoundingSpinnerLinearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.8"
+            
+            android:orientation="horizontal" >
+             <LinearLayout
+                        android:id="@+id/compoundingTextViewLinearLayout"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_weight="0.75"
+                        android:gravity="center_vertical|right"
+                        android:orientation="vertical" >
+
+                        <TextView
+                            android:id="@+id/compoundingTextView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Compounding"
+                            android:textColor="@color/black2"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                      <LinearLayout
+                        android:id="@+id/compoundingSpinnerLinearLayout"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_weight="1.75"
+                        android:gravity="center_vertical|left"
+                        android:orientation="vertical" >
+
+                        <Spinner
+                            android:id="@+id/compoundingSpinner"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_margin="2dp"
+                            android:entries="@array/compound_array"
+                            android:prompt="@string/select" />
+                    </LinearLayout>
+            </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ButtonLinearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2"
+            android:orientation="horizontal" >
+
+            <LinearLayout
+                android:id="@+id/resetButtonLinearLayout"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:paddingBottom="35dp"
+                android:paddingLeft="30dp"
+                android:paddingRight="30dp"
+                android:paddingTop="20dp" >
+
+                <Button
+                    android:id="@+id/resetButton"
+                    style="@style/button_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/reset_button"
+                    android:text="Reset" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/calculateButtonLinearLayout"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:paddingBottom="35dp"
+                android:paddingLeft="30dp"
+                android:paddingRight="30dp"
+                android:paddingTop="20dp" >
+
+                <Button
+                    android:id="@+id/calculateButton"
+                    style="@style/button_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/calculate_button"
+                    android:text="Calculate" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/spaceLinearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0"
+            android:orientation="vertical" >
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/resultLinearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="4"
+            android:orientation="horizontal" >
+
+            <LinearLayout
+                android:id="@+id/resultTextViewLinearLayout"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical" >
+
+                <LinearLayout
+                    android:id="@+id/principalInvestedTextViewLinearLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical|right"
+                    android:orientation="vertical" >
+
+                    <TextView
+                        android:id="@+id/principalInvestedTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Principal Invested:"
+                        android:textColor="@color/black2"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/interestEarnedTextViewLinearLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical|right"
+                    android:orientation="vertical" >
+
+                    <TextView
+                        android:id="@+id/interestEarnedTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Interest Earned:"
+                        android:textColor="@color/black2"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/maturityValueTextViewDisplayLinearLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical|right"
+                    android:orientation="vertical" >
+
+                    <TextView
+                        android:id="@+id/maturityValueTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Maturity Value:"
+                        android:textColor="@color/black2"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/spaceLinearLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="4"
+                    android:orientation="vertical" >
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/resultTextViewDisplayLinearLayout"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1.5"
+                android:orientation="vertical" >
+
+                <LinearLayout
+                    android:id="@+id/principalInvestedTextViewDisplayLinearLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical|left"
+                    android:orientation="vertical"
+                    android:paddingLeft="10dp" >
+
+                    <TextView
+                        android:id="@+id/principalInvestedTextViewDisplay"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0"
+                        android:textColor="@color/blue1"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/interestEarnedTextViewLinearLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical|left"
+                    android:orientation="vertical"
+                    android:paddingLeft="10dp" >
+
+                    <TextView
+                        android:id="@+id/interestEarnedTextViewDisplay"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0"
+                        android:textColor="@color/blue1"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/maturityValueTextViewDisplayLinearLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical|left"
+                    android:orientation="vertical"
+                    android:paddingLeft="10dp" >
+
+                    <TextView
+                        android:id="@+id/maturityValueTextViewDisplay"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0"
+                        android:textColor="@color/blue1"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/spaceLinearLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="4"
+                    android:orientation="vertical" >
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
 
 </LinearLayout>
