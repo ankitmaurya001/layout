@@ -324,7 +324,7 @@ public class MainActivity extends Activity {
 				initialInvestmentEditText			=(EditText) findViewById(R.id.initialInvestmentEditText);
 				monthlySIPEditText				=(EditText) findViewById(R.id.monthlySIPEditText);
 				periodEditText						=(EditText) findViewById(R.id.periodEditText);
-				annualInterestRateEditText			=(EditText) findViewById(R.id.annualInterestRateEditText); 
+				annualInterestRateEditText			=(EditText) findViewById(R.id.annualRateEditText); 
 				
 				
 			  //Get reference  of spinner field by referring it's ID

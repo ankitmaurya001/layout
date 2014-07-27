@@ -16,14 +16,14 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:paddingTop="@dimen/margin" >
+            android:paddingTop="10dp" >
 
             <LinearLayout
                 android:id="@+id/initialAmountLinearLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:paddingLeft="10dp" >
+                android:paddingLeft="3dp" >
 
                 <TextView
                     android:id="@+id/initialInvestmentTextView"
@@ -38,7 +38,7 @@
                     android:id="@+id/initialInvestmentEditText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:ems="5"
+                    android:ems="4"
                     android:inputType="numberDecimal" >
 
                     <requestFocus />
@@ -50,7 +50,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:paddingLeft="28dp" >
+                android:paddingLeft="23dp" >
 
                 <TextView
                     android:id="@+id/monthlySIPTextView"
@@ -65,7 +65,7 @@
                     android:id="@+id/monthlySIPEditText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:ems="5"
+                    android:ems="4"
                     android:inputType="numberDecimal" >
                 </EditText>
 
@@ -92,7 +92,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:paddingLeft="20dp" >
+                android:paddingLeft="15dp" >
 
                 <TextView
                     android:id="@+id/periodTextView"
@@ -106,7 +106,7 @@
                     android:id="@+id/periodEditText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:ems="5"
+                    android:ems="4"
                     android:inputType="number" />
             </LinearLayout>
 
@@ -115,7 +115,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:paddingLeft="22dp" >
+                android:paddingLeft="15dp" >
 
                 <TextView
                     android:id="@+id/annualRateTextView"
@@ -129,7 +129,7 @@
                     android:id="@+id/annualRateEditText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:ems="5"
+                    android:ems="4"
                     android:inputType="numberDecimal" />
             </LinearLayout>
 
@@ -138,7 +138,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:paddingLeft="15dp" >
+                android:paddingLeft="13dp" >
 
                 <TextView
                     android:id="@+id/compoundingTextView"
@@ -177,7 +177,7 @@
                         android:id="@+id/resetButton"
                         style="@style/button_text"
                         android:layout_width="match_parent"
-                        android:layout_height="45dp"
+                        android:layout_height="40dp"
                         android:background="@drawable/reset_button"
                         android:text="Reset" />
                 </LinearLayout>
@@ -197,7 +197,7 @@
                         android:id="@+id/calculateButton"
                         style="@style/button_text"
                         android:layout_width="match_parent"
-                        android:layout_height="45dp"
+                        android:layout_height="40dp"
                         android:background="@drawable/calculate_button"
                         android:text="Calculate" />
                 </LinearLayout>
@@ -209,7 +209,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:paddingLeft="20dp"
-                android:paddingTop="40dp" >
+                android:paddingTop="15dp" >
 
                 <TextView
                     android:id="@+id/principalInvestedTextView"
@@ -236,7 +236,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:paddingLeft="40dp" >
+                android:paddingLeft="36dp" >
 
                 <TextView
                     android:id="@+id/interestEarnedTextView"
@@ -263,7 +263,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:paddingLeft="45dp" >
+                android:paddingLeft="42dp" >
 
                 <TextView
                     android:id="@+id/maturityValueTextView"

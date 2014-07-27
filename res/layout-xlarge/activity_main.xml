@@ -23,7 +23,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:paddingLeft="10dp" >
+                android:paddingLeft="8dp" >
 
                 <TextView
                     android:id="@+id/initialInvestmentTextView"
@@ -38,7 +38,7 @@
                     android:id="@+id/initialInvestmentEditText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:ems="5"
+                    android:ems="10"
                     android:inputType="numberDecimal" >
 
                     <requestFocus />
@@ -65,7 +65,7 @@
                     android:id="@+id/monthlySIPEditText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:ems="5"
+                    android:ems="10"
                     android:inputType="numberDecimal" >
                 </EditText>
 
@@ -83,7 +83,7 @@
                     android:id="@+id/monthlyDepositAnnualRateEditText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:ems="2"
+                    android:ems="6"
                     android:inputType="numberDecimal" />
             </LinearLayout>
 
@@ -106,7 +106,7 @@
                     android:id="@+id/periodEditText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:ems="5"
+                    android:ems="10"
                     android:inputType="number" />
             </LinearLayout>
 
@@ -115,7 +115,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:paddingLeft="22dp" >
+                android:paddingLeft="20dp" >
 
                 <TextView
                     android:id="@+id/annualRateTextView"
@@ -129,7 +129,7 @@
                     android:id="@+id/annualRateEditText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:ems="5"
+                    android:ems="10"
                     android:inputType="numberDecimal" />
             </LinearLayout>
 
@@ -150,7 +150,7 @@
 
                 <Spinner
                     android:id="@+id/compoundingSpinner"
-                    android:layout_width="wrap_content"
+                    android:layout_width="300dp"
                     android:layout_height="wrap_content"
                     android:entries="@array/compound_array"
                     android:prompt="@string/select" />
@@ -236,7 +236,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:paddingLeft="40dp" >
+                android:paddingLeft="39dp" >
 
                 <TextView
                     android:id="@+id/interestEarnedTextView"

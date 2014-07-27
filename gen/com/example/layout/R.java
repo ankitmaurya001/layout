@@ -42,38 +42,58 @@ public final class R {
          */
         public static final int activity_horizontal_margin=0x7f040000;
         public static final int activity_vertical_margin=0x7f040001;
+        public static final int leftMargin=0x7f040003;
+        public static final int margin=0x7f040002;
+        public static final int topMargin=0x7f040004;
     }
     public static final class drawable {
         public static final int calculate_button=0x7f020000;
         public static final int finatoz_logo=0x7f020001;
         public static final int ic_launcher=0x7f020002;
         public static final int logo1=0x7f020003;
-        public static final int reset=0x7f020004;
-        public static final int reset_button=0x7f020005;
+        public static final int logo2=0x7f020004;
+        public static final int logo3=0x7f020005;
+        public static final int logo5=0x7f020006;
+        public static final int logo_4=0x7f020007;
+        public static final int reset=0x7f020008;
+        public static final int reset_button=0x7f020009;
     }
     public static final class id {
-        public static final int action_settings=0x7f0a0015;
-        public static final int annualInterestRateEditText=0x7f0a0007;
-        public static final int annualInterestRateTextView=0x7f0a0008;
-        public static final int calculateButton=0x7f0a000b;
-        public static final int compoundingSpinner=0x7f0a0009;
-        public static final int compoundingTextView=0x7f0a000a;
-        public static final int initialInvestmentEditText=0x7f0a0001;
-        public static final int initialInvestmentTextView=0x7f0a0002;
-        public static final int interestEarnedTextView=0x7f0a0010;
-        public static final int interestEarnedTextViewDisplay=0x7f0a000f;
-        public static final int maturityValueTextView=0x7f0a0012;
-        public static final int maturityValueTextViewDisplay=0x7f0a0011;
-        public static final int monthlyDepositAnnualRateEditText=0x7f0a0013;
-        public static final int monthlySIPEditText=0x7f0a0003;
-        public static final int monthlySIPTextView=0x7f0a0004;
-        public static final int periodEditText=0x7f0a0006;
-        public static final int periodTextView=0x7f0a0005;
-        public static final int principalInvestedTextView=0x7f0a000e;
-        public static final int principalInvestedTextViewDisplay=0x7f0a000d;
-        public static final int relativeLayout=0x7f0a0000;
-        public static final int resetButton=0x7f0a000c;
-        public static final int textView1=0x7f0a0014;
+        public static final int MonthlySIPLinearLayout=0x7f0a0006;
+        public static final int OuterButtonLinearLayout=0x7f0a0014;
+        public static final int action_settings=0x7f0a0022;
+        public static final int annualRateEditText=0x7f0a0010;
+        public static final int annualRateLinearLayout=0x7f0a000e;
+        public static final int annualRateTextView=0x7f0a000f;
+        public static final int calculateButton=0x7f0a0018;
+        public static final int compoundingLinearLayout=0x7f0a0011;
+        public static final int compoundingSpinner=0x7f0a0013;
+        public static final int compoundingTextView=0x7f0a0012;
+        public static final int increaseTextView=0x7f0a0009;
+        public static final int initialAmountLinearLayout=0x7f0a0003;
+        public static final int initialInvestmentEditText=0x7f0a0005;
+        public static final int initialInvestmentTextView=0x7f0a0004;
+        public static final int innerCalculateButtonLinearLayout=0x7f0a0017;
+        public static final int innerResetButtonLinearLayout=0x7f0a0015;
+        public static final int interestEarnedLinearLayout=0x7f0a001c;
+        public static final int interestEarnedTextView=0x7f0a001d;
+        public static final int interestEarnedTextViewDisplay=0x7f0a001e;
+        public static final int mainRedBox=0x7f0a0000;
+        public static final int mainScrollView=0x7f0a0001;
+        public static final int maturityValueLinearLayout=0x7f0a001f;
+        public static final int maturityValueTextView=0x7f0a0020;
+        public static final int maturityValueTextViewDisplay=0x7f0a0021;
+        public static final int monthlyDepositAnnualRateEditText=0x7f0a000a;
+        public static final int monthlySIPEditText=0x7f0a0008;
+        public static final int monthlySIPTextView=0x7f0a0007;
+        public static final int outerLinearLayout=0x7f0a0002;
+        public static final int periodEditText=0x7f0a000d;
+        public static final int periodLinearLayout=0x7f0a000b;
+        public static final int periodTextView=0x7f0a000c;
+        public static final int principalInvestedLinearLayout=0x7f0a0019;
+        public static final int principalInvestedTextView=0x7f0a001a;
+        public static final int principalInvestedTextViewDisplay=0x7f0a001b;
+        public static final int resetButton=0x7f0a0016;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;
